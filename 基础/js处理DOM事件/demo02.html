@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>js修改dom节点</title>
+	<script type="text/javascript">
+		function modifyDom(argument) {
+			// body...
+			document.getElementById("txt").innerHTML = "用户名";
+			document.getElementById("userName").value = "jack";
+		}
+		function addDom(argument) {
+			// body...
+			var para = document.createElement("p");
+			var node = document.createTextNode(".....前.....");
+
+			var para2 = document.createElement("p");
+			var node2 = document.createTextNode(".....后.....");
+
+		    para.appendChild(node);
+		    para2.appendChild(node2);
+		   
+		    var parent = document.getElementById("parent");
+		    var son1 = document.getElementById("son1");
+		    
+		    parent.insertBefore(para,son1);
+		    parent.appendChild(para2);
+		}
+
+		function removeDom(argument) {
+			// body...
+		    var parent = document.getElementById("parent");
+		    var son1 = document.getElementById("son1");
+		    parent.removeChild(son1);
+
+		}
+	</script>
+</head>
+<body>
+<div id="parent">
+	<div id="son1">
+		<font id="txt">:</font> 
+		<input type="text" name="" id="userName">
+	</div>
+	<input type="button" name="" value="修改dom节点" onclick="modifyDom()">
+	<input type="button" name="" value="添加dom节点" onclick="addDom()">
+	<input type="button" name="" value="删除dom节点" onclick="removeDom()">
+
+</div>
+</body>
+</html>
